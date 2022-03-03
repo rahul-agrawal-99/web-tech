@@ -1,0 +1,303 @@
+ __  __    ___    _   _    ____    ___  
+|  \/  |  / _ \  | \ | |  / ___|  / _ \ 
+| |\/| | | | | | |  \| | | |  _  | | | |
+| |  | | | |_| | | |\  | | |_| | | |_| |
+|_|  |_|  \___/  |_| \_|  \____|  \___/ 
+
+table  -> collection
+
+record/touple/row  -> document
+
+attribute/column -> key field
+
+MongoDB supported datatypes :
+
+1.String − String in MongoDB must be UTF-8 valid.
+2.Integer  −  Integer can be 32 bit or 64 bit depending upon your server.
+3.Boolean
+4.Double − floating point values.
+5.Min/ Max keys − This type is used to compare a value against the lowest and highest BSON elements.
+6.Arrays − 
+7.Timestamp − ctimestamp. This can be handy for recording when a document has been modified or added.
+8.Object − This datatype is used for embedded documents.
+9.Null − This type is used to store a Null value.
+10.Date
+11.Object ID − This datatype is used to store the document’s ID.
+12.Binary data 
+13.Code − This datatype is used to store JavaScript code into the document.
+14.Regular expression
+
+
+MongoDB operators :
+
+
+Operation	                                    Symbols
+
+Equality	                                {<key>:{$eg;<value>}}	
+Less Than	                                {<key>:{$lt:<value>}}	
+Less Than Equals	                        {<key>:{$lte:<value>}}	
+Greater Than	                            {<key>:{$gt:<value>}}	
+Greater Than Equals	                        {<key>:{$gte:<value>}}	
+Not Equals	                                {<key>:{$ne:<value>}}	
+Values in an array	                        {<key>:{$in:[<value1>, <value2>,……<valueN>]}}	
+Values not in an array	                    {<key>:{$nin:<value>}}
+
+And                                         db.mycol.find({ $and: [ {<key1>:<value1>}, { <key2>:<value2>} ] })
+                                            or
+                                            db.mycol.find({  <key1>:<value1>,   <key2>:{$gt:<value2>}    })
+
+OR                                          db.mycol.find({ $or: [ {<key1>:<value1>}, { <key2>:<value2>} ] })
+
+NOT / NOR                                   db.mycol.find({ $nor: [ {<key1>:<value1>}, { <key2>:<value2>} ] })
+
+
+
+
+****************************************************************************************************************************
+									Create 
+****************************************************************************************************************************
+
+Create database :
+
+            use db_name        --- create database named db_name and use it to perform oparations
+
+List all databases:
+
+            show dbs
+
+Create Collection/table :
+
+            db.createCollection("mycollection_name")
+
+            OR 
+
+            db.my_collection.insert({"name" : "rahul"})        it will create and insert
+
+List all Collections ;
+
+            show collections
+
+Insert in Collection :
+
+            db.COLLECTION_NAME.insert(document)   document is list of dictionaries containing key value pairs
+
+                                e.g. db.coll.insert([ {"name" : "rahul1"} , {"name" : "rahul2"} ])   ---for many records
+                                     db.coll.insert({"name" : "rahul"})           ---for single record
+
+                by default every inserted document has key field _id which acts as Primary key
+
+
+****************************************************************************************************************************
+									Read
+****************************************************************************************************************************
+
+
+Read from a Collection :
+
+                db.COLLECTION_NAME.find()              --e.g    db.COLLECTION_NAME.find({"likes": {$gt:10}) --get likes >10
+
+                db.COLLECTION_NAME.find().pretty()            --if document have so many key fields
+
+                db.COLLECTION_NAME.findOne()            -- returns first and only one record document
+
+                db.COLLECTION_NAME.findOne({KEY_NAME:"VALUE"})    --return first record matches value
+
+                db.COLLECTION_NAME.find({},{KEY:1})      -- read only specified key fields 
+
+                                e.g. db.mycol.find({},{"title":1,_id:0})    --display all record without _id key field
+                                        by default every key field has value of 1
+
+                db.COLLECTION_NAME.find().limit(NUMBER)    --limit how many records to display
+
+                db.COLLECTION_NAME.find().skip(NUMBER)    --skip first N records
+
+                db.COLLECTION_NAME.sort({KEY_NAME:1})    --return records with acsending order with using key field KEY_NAME
+                                                            by default _id:1  ,  -1 used for descending order
+
+
+
+
+
+****************************************************************************************************************************
+									Update
+****************************************************************************************************************************
+
+
+Update record in Collection :
+
+
+    For same key field :    selected and updating key should be same only
+
+                db.COLLECTION_NAME.update(SELECTION_CRITERIA, UPDATED_DATA)
+
+                    e.g.  db.mycol.update({'title':'oldtitle'},{$set:{'title':'newtitle'}})
+                                it will update value in key field of "title" for only first found element
+
+                By default, MongoDB will update only a single document. To update multiple documents, 
+                you need to set a parameter 'multi' to true.
+
+                            db.mycol.update({'title':'oldtitle'},{$set:{'title':'newtitle'}} , ,{multi:true})
+
+    For Different key field :    
+
+                db.COLLECTION_NAME.findOneAndUpdate(SELECTIOIN_CRITERIA, UPDATED_DATA)
+
+                    e.g. db.mycol.findOneAndUpdate({'title':'oldtitle'},{$set:{'age': 50 }})
+
+                        if first record having 'title':'oldtitle' ot have key field "age" then add new field
+
+                db.COLLECTION_NAME.updateOne(SELECTIOIN_CRITERIA, UPDATED_DATA)    -- works same as findOneAndUpdate
+
+
+                db.COLLECTION_NAME.updateMany(SELECTIOIN_CRITERIA, UPDATED_DATA)    -- updates all records 
+
+                
+
+update() method updates the values in the existing document while the save() method replaces the existing document with the document passed in save() method.
+
+Save record in Collection :
+
+                db.COLLECTION_NAME.save({_id:ObjectId(),NEW_DATA})
+
+                  e.g. db.mycol.save({"_id" : ObjectId("507f191e810c19729de860ea"), "new_title":"newvalue"})
+                            it will clear all the key fields except _id and set up new key field mentioned
+
+
+
+
+****************************************************************************************************************************
+									Delete
+****************************************************************************************************************************
+
+
+
+Delete whole selected database;
+
+                db.dropDatabase()
+
+Drop the whole Collection :
+
+                db.COLLECTION_NAME.drop()
+
+remove specific record :
+
+        only first result :
+
+                db.COLLECTION_NAME.remove(DELLETION_CRITTERIA)
+
+                  e.g. db.mycol.remove({'title':'myt'})  
+
+        first N results :
+
+                db.COLLECTION_NAME.remove(DELLETION_CRITTERIA , N )
+
+                  e.g. db.mycol.remove({'title':'myt'} , 5)  
+
+remove all records / truncate ;
+
+                db.COLLECTION_NAME.remove({})
+
+
+ ____                  _       _ 
+/ ___| _ __   ___  ___(_) __ _| |
+\___ \| '_ \ / _ \/ __| |/ _` | |
+ ___) | |_) |  __/ (__| | (_| | |
+|____/| .__/ \___|\___|_|\__,_|_|
+      |_|                        
+  ____                                          _     
+ / ___|___  _ __ ___  _ __ ___   __ _ _ __   __| |___ 
+| |   / _ \| '_ ` _ \| '_ ` _ \ / _` | '_ \ / _` / __|
+| |__| (_) | | | | | | | | | | | (_| | | | | (_| \__ \
+ \____\___/|_| |_| |_|_| |_| |_|\__,_|_| |_|\__,_|___/
+                                                      
+****************************************************************************************************************************
+                                            Indexing
+****************************************************************************************************************************
+
+Indexes support the efficient resolution of queries. Without indexes, MongoDB must scan every document of a collection to select those documents that match the query statement. This scan is highly inefficient and require MongoDB to process a large volume of data.
+
+Indexes are special data structures, that store a small portion of the data set in an easy-to-traverse form. The index stores the value of a specific field or set of fields, ordered by the value of the field as specified in the index.
+
+
+Create Index on key field KEY :
+
+                    db.COLLECTION_NAME.createIndex({KEY:1})       -- created index on field KEY in ascending order 
+                                                                        -1 for descending order
+
+                        e.g.  db.mycol.createIndex({"title":1,"description":-1})
+
+Delete Index on key field KEY :
+
+                    db.COLLECTION_NAME.dropIndex({KEY:1})    --drop single index on key field
+
+                    db.COLLECTION_NAME.dropIndexes()          -- drop all indexes on collections
+
+****************************************************************************************************************************
+                                            Aggregation
+****************************************************************************************************************************
+Aggregations operations process data records and return computed results. 
+Aggregation operations group values from multiple documents together, and can perform a variety of operations on the grouped data to return a single result.
+
+Available Aggregations operations
+
+        $sum	
+        $avg	
+        $min	
+        $max	
+        $push	
+        $addToSet	
+        $first	
+        $last
+
+
+
+
+****************************************************************************************************************************
+					 Replication
+****************************************************************************************************************************
+
+
+
+
+
+
+****************************************************************************************************************************
+									Delete
+****************************************************************************************************************************
+
+
+
+
+****************************************************************************************************************************
+									Delete
+****************************************************************************************************************************
+
+
+
+
+
+
+
+****************************************************************************************************************************
+									Delete
+****************************************************************************************************************************
+
+
+
+
+
+
+****************************************************************************************************************************
+									Delete
+****************************************************************************************************************************
+
+
+
+
+
+
+
+
+****************************************************************************************************************************
+									Delete
+****************************************************************************************************************************
