@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> Star Restro</title>
+    <link href="https://fonts.googleapis.com/css?family=Bree+Serif&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+    
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            color: white;
+            height: 200vh;
+        }
+
+        header::before{
+            background: url('https://source.unsplash.com/collection/190727/1600x900') no-repeat center center/cover;
+            content: "";
+            position: absolute;
+            top:0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.3;
+        }
+
+        .navigation {
+            font-family: 'Bree Serif', serif;
+            font-size: 20px;
+            display: flex;
+        }
+
+        li {
+            list-style: none;
+            padding: 20px 23px;
+        }
+
+        section {
+            height: 344px;
+            font-family: 'Bree Serif', serif;
+            margin: 3px 230px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        h1 {
+            font-size: 4rem;
+        }
+
+        p {
+            text-align: center;
+        }
+
+       .form{
+           margin-top: 20%;
+       }
+       label{
+           margin-left: 10%;
+           margin-right: 3%;
+              font-size: 20px;
+              font-family:  serif;
+       }
+       option{
+           
+              font-family:  serif;
+       }
+       a{
+           text-decoration: none;
+           color: white;
+       }
+       a:hover{
+           text-decoration: underline;
+           font-size: 120%;
+           color: rgb(157, 0, 248);
+       }
+       span:hover{
+        transform: scale(1.3);
+        color: rgb(0, 126, 244);
+       }
+    </style>
+</head>
+
+<body>
+
+
+        <header>
+            <nav class="navbar">
+                <ul class="navigation">
+                    <a href='#'>      <li class="item">Home</li>   </a>
+                    <a href='#'>     <li class="item">About</li>  </a>
+                    <a href='#'>         <li class="item">Services</li></a>
+                    <a href='#'>    <li class="item">Contact </li>  </a>
+
+                    <!-- <b style=""> -->
+
+                        <span style="margin-left: 90%;font-size: 70px; font-family: 'Sofia'">Star Restro</span>
+                    <!-- </b> -->
+                
+                  
+                
+                   
+                </ul>
+            </nav>
+        </header>
+        <section>
+            <h1> Your Cravings End Here ..</h1>
+            <p style="font-size: 30px;">From Fresh Vegies , to your Dish </p>
+            <p style="font-size: 35px;">We Serve the <b>Best</b>  intercontinal and indian cusine in pune </p>
+            <br>
+            <button type="button" class="btn btn-outline-success" > <span style="color: azure;"> Order Online </span>
+               </button>
+        </section>
+  
+    
+    <div class='form'>
+        <br>
+        <br>
+     
+        <p style="text-align: left;font-size:40px">Book a Table for Lunch And Dinner :</p>
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <label for="name"> Name </label>
+        <input type='text'>
+      
+        <label for="name"> Location </label>
+        <select name="cars" id="cars">
+            <option value="Defaule">Select Location</option>
+            <option value="Karve-Nagar">Karve Nagar</option>
+            <option value="Camp">Camp</option>
+            <option value="Bavdhan">Bavdhan</option>
+       
+          </select>
+        <br>
+        <br>
+        <br>
+        <br>
+       
+        <label for="name"> Contact No. </label>
+        <input type='text'>
+       
+        <label for="name"> Total Guest </label>
+        <select name="cars" id="cars">
+            <option value="Defaule">Guest Count</option>
+            <option value="Karve-Nagar">1-5</option>
+            <option value="Camp">5-20</option>
+            <option value="Bavdhan">20+</option>
+
+        
+       
+          </select>
+        <br>
+        <br>
+        <br>
+        <br>
+        <label for="name"> Reserve Parking  </label>
+        <label for="age1" style="margin-right: 0%; margin-left:2%">yes</label>
+        <input type="radio" id="age1" name="age" value="30">
+        <label for="age2"  style="margin-right: 0%; margin-left:2%">no</label>
+        <input type="radio" id="age2" name="age" value="60">
+        <br>
+        <br>
+
+    </div>
+
+
+
+       
+</body>
+
+</html>

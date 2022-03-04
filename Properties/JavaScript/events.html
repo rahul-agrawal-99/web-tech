@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Document</title>
+</head>
+<style>
+    .container{
+        border: 2px solid black;
+        
+        height: 120%;
+
+    }
+</style>
+<body id="df">
+    <div class='container' id="asd">
+        this is good 
+    </div>
+    <div class='container' >
+        this is good 
+    </div>
+    <p></p>
+    <p onmouseover="usearrow()">sdfgdf</p>
+    <p></p>
+    <p></p>
+    <button id="clk"> Stop interval</button>
+    <br>
+    <input type='text' id="inp">
+    <input type='text' id="inp2">
+    <button id="save">save</button>
+    <p></p>
+    <script>
+
+        var x = document.getElementsByTagName('p')[0];
+        var x1 = document.getElementsByTagName('p')[1];
+        var x2 = document.getElementsByTagName('p')[2];
+        var x3 = document.getElementsByTagName('p')[3];
+        var x4 = document.getElementsByTagName('p')[4];
+        var i =0 ;
+
+        window.ondrag = function(){
+            x.innerHTML = "you dragged"
+        }
+        window.ononline = function(){
+           alert("you are online");
+        }
+        window.onload = function(){
+           //alert("page loaded");
+        }
+       
+        asd.addEventListener('click' , function(){
+            x.innerHTML = "click"
+        })
+        
+        asd.addEventListener('mouseout' , function(){
+            x.innerHTML = "mouceout"
+            
+        })
+        asd.addEventListener('mouseover' , function(){
+            
+            x.innerHTML = "mouse over"
+        })
+        asd.addEventListener('mouseup' , function(){
+            
+            x.innerHTML = "mouse up"
+        })
+
+        usearrow = ()=>{
+
+            x1.innerHTML = "Using arrow function"
+        }
+       
+
+        function logging (){
+            x2.innerHTML = " This is going to appear in  3000msec i.e 3sec " ;
+            
+        }
+        setTimeout(logging , 3000);
+
+      //  setTimeout(logging( " This is going to disappear  ") , 10000);
+        
+        
+        function repeat(){
+            x3.innerHTML = " This is happen in every 1000msec i.e 1sec \n i.e i = " + i ;
+            i = i+1 ;
+
+        }
+        clr = setInterval(repeat , 1000);
+
+
+        clk.addEventListener('click' , function(){
+            ans = confirm("clearing");
+            if(ans){
+
+                clearInterval(clr);
+                x3.innerHTML = " cleaing all asc" ;
+            }
+        })
+
+
+        save.addEventListener('click' , function(){
+            var v = document.getElementById("inp").value;
+            var v1 = document.getElementById("inp2").value;
+            alert("yu types : " + v + "and " + v1);
+            localStorage.setItem("item" , v );
+            localStorage.setItem("item2" , v1);
+        })
+        
+   
+        x4.innerHTML = "locally stored value is :" + localStorage.getItem("item") + " and " + localStorage.getItem("item2");
+        x4.innerHTML = ` locally stored value is : ${ localStorage.getItem("item")}  and   ${ localStorage.getItem("item2")} using fstring like python `;
+ 
+        
+
+
+    </script>
+
+</body>
+</html>

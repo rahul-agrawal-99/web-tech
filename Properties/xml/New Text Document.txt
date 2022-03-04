@@ -1,0 +1,63 @@
+
+1. DTD
+
+<!DOCTYPE restaurant 
+[
+<!ELEMENT restaurant (breckfast,lunch,dinner)>
+<!ELEMENT breckfast (menu+)>
+<!ELEMENT menu (title,duration,ingridient+)>
+<!ELEMENT title (#PCDATA)>
+<!ELEMENT duration (#PCDATA)>
+<!ELEMENT ingridient (#PCDATA)>
+<!ELEMENT lunch (menu+)>
+<!ELEMENT menu (title,duration,ingridient+)>
+<!ELEMENT title (#PCDATA)>
+<!ELEMENT duration (#PCDATA)>
+<!ELEMENT dinner (menu+)>
+<!ELEMENT menu (title,duration,ingridient+)>
+<!ELEMENT title (#PCDATA)>
+<!ELEMENT duration (#PCDATA)>
+]>
+
+2. XML Schema
+
+<!DOCTYPE restaurant SYSTEM "restaurant.dtd">
+<restaurant>
+
+<breckfast>
+<menu>
+<title>
+</title>
+<duration>
+</duration>
+<ingredient>
+</ingredient>
+</menu>
+<breckfast>
+
+<lunch>
+<menu>
+<title>
+</title>
+<duration>
+</duration>
+<ingredient>
+</ingredient>
+</menu>
+</lunch>
+
+<dinner>
+<menu>
+<title>
+</title>
+<duration>
+</duration>
+<ingredient>
+</ingredient>
+</menu>
+</dinner>
+
+</restaurant>
+
+
+3. DOM

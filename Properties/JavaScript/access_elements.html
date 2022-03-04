@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Document</title>
+</head>
+<body>
+
+    <div class='cont1'>
+        change content using tagname selector
+        <button id="button23">click me now</button>
+        <button id="button232">click me now to change fontsize randomly</button>
+        <p class="p"></p>
+    </div>
+    <p>asdhbsbdvkibs</p>
+    
+    <script>
+        var btn = document.createElement('button1');      // Crteate a new button element where this script tag is called
+        var divcont = document.querySelector('.cont1');
+        btn.innerHTML = ' <button >click me</button>';
+        btn.onclick = function() {
+            var div = document.createElement('div');
+            div.innerHTML = 'This is a div after the button';
+            document.body.appendChild(div);
+        }
+        document.body.appendChild(btn);
+    </script>
+    
+    
+    <p class='dates' id="demo">class dates</p>
+
+<div class='texteffect'>
+
+    <p id="texteffectmain" style="display: none;">
+         Enter Value Hrer to see in effective mode
+    </p>
+    <p id="maintext" class="xcvb"></p>
+</div>
+
+    
+    <script src='access.js'></script>
+</body>
+</html>

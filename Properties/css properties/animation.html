@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+    <head>
+        <meta charset='UTF-8'>
+        <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+        <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+        <title>Document</title>
+    </head>
+
+    <style>
+        /*//////////////////////////////////////////////////////    btn 1  //////////////////////////////////////////////////////////////////////////////*/
+
+        .rainbow {
+
+            background-color: #343A40;
+            border-radius: 4px;
+            color: #fff;
+            cursor: pointer;
+            padding: 2% 2%;
+            display: inline-block;
+            width: 10%;
+            height: 2%;
+            justify-content: center;
+            text-align: center;
+
+        }
+
+
+        .rainbow-3:hover {
+            font-weight: bolder;
+            background-image: linear-gradient(to right, red, orange, yellow, green, blue, indigo, red);
+            animation: slidebg 5s linear infinite;
+            animation-timing-function: ease-out;
+        }
+
+
+
+        @keyframes slidebg {
+            to {
+                background-position: 20vw;
+            }
+        }
+
+        /*//////////////////////////////////////////////////////    btn 2 //////////////////////////////////////////////////////////////////////////////*/
+
+        .btn {
+            margin: 20px auto;
+            border: none;
+            padding: 10px 44px;
+            font-size: 36px;
+            position: relative;
+        }
+
+        .btn::before {
+            transition: all 0.85s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            content: '';
+            width: 50%;
+            height: 100%;
+            background: black;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .btn .btn-text {
+            color: white;
+
+            mix-blend-mode: difference;
+        }
+
+        .btn:hover::before {
+
+            background: black;
+            width: 100%;
+
+        }
+
+
+        .btn.rounded {
+            border-radius: 50px;
+        }
+
+        .btn .text-green {
+            color: #00F0B5;
+            mix-blend-mode: difference;
+        }
+
+        .btn::before {
+            border-radius: 50px;
+            width: 25%;
+            background: #00F0B5;
+        }
+
+        .btn:hover::before {
+
+            background: #00F0B5;
+            width: 100%;
+
+        }
+
+
+        /*//////////////////////////////////////////////////////    btn 3   ////////////////////////////////////////////////////////////////*/
+
+
+
+     
+    </style>
+
+    <body>
+        <a class="rainbow rainbow-3">Click Me 1!<a />
+
+
+            <button class='btn rounded'>
+                <span class='text-green'> Hover Me 2</span>
+            </button>
+
+            <button class="slide">Slide</button>
+            <button class="offset">Offset</button>
+
+
+    </body>
+
+</html>
+
+<!-- 
+.box {
+    background-color: green;
+    width: 250px;
+    height: 250px;
+    position: relative;
+    /* animation-name: harry1; */
+    animation-name: harry2;
+    animation-duration: 8s;
+    animation-iteration-count: 1;
+    /* animation-fill-mode: alternate; */
+    /* animation-timing-function: ease-in-out; */
+    /* animation-delay: 3s; */
+    /* animation-direction: reverse;  */
+
+    /* These properties can be set using this shorthand */
+    /* animation: animation-name animation-duration animation-timing-function animation-delay animation-iteration-count animation-fill-mode; */
+    /* animation: harry 5s ease-in 1s 12 backwards; */
+
+}
+
+@keyframes harry2 {
+    0%{
+        top:0px;
+        left:0px;
+    }
+    25%{
+        top: 250px;
+        left: 0px;
+    }
+    75%{
+        top: 250px;
+        left: 250px;
+    }
+    100%{
+        top: 0px;
+        left: 250px;
+    }
+    
+}
+@keyframes harry1 {
+    from {
+        width: 200px;
+    }
+
+    to {
+        width: 1400px;
+    }
+} -->

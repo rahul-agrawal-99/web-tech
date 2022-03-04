@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+    <head>
+        <meta charset='UTF-8'>
+        <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+        <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+        <title>gmail signup</title>
+    </head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+        .main {
+            display: inline-flex;
+            width: 90vw;
+            height: 90vh;
+            flex-direction: column;
+            padding: 10%;
+
+            justify-content: center;
+            align-items: center;
+
+
+
+
+        }
+
+        .sub {
+            border: 2px solid rgb(128, 128, 128, 0.5);
+            border-radius: 2%;
+
+        }
+
+        * {
+            padding: 0.5%;
+        }
+
+        #email {
+            border: 0px solid rgb(128, 128, 128, 0.5);
+        }
+
+        input {
+            border: px solid rgb(128, 128, 128, 0.5);
+
+        }
+        input:hover{
+            border: 2px solid blue;
+        }
+
+        .domain {
+            border: 2px solid rgba(0, 0, 0, 0.1);
+            display: inline-flex;
+            padding-right: 2%;
+        }
+
+        sub {
+            margin-top: 1%;
+        }
+
+        .svgtext {
+            margin-right: 1%;
+        }
+        .btn{
+            width: 100%;
+            height: 100%;
+            background-color: rgb(7, 2, 255);
+            display: inline;
+           
+
+        }
+     
+        .btn:hover{
+            background-color: rgb(236, 235, 241);
+           
+            animation: slidebg 1.45s linear infinite;
+          
+            z-index: 10;
+
+        }
+        
+
+
+
+        @keyframes slidebg {
+            from{
+
+                background-color: rgb(7, 2, 255);
+            }
+            to {
+                background-color: rgb(236, 235, 241);
+            }
+        }
+
+    </style>
+
+    <body>
+        <div class='main'>
+
+            <div class='sub'>
+
+
+
+
+                <img src='D:\study\web technology\Google.png' alt='' height="55rem" width="100rem" >
+
+
+                <h3 style="text-align: centre;">Create your Google Account</h3>
+                <br>
+
+                <div class='con'>
+
+
+                        <div class='name' style="width: 35rem;">
+
+                            
+                            <input type='text' name='action' placeholder='First name' id="name"> &nbsp;&nbsp;&nbsp; <input
+                            type='text' id="last" placeholder="Last name">
+                        </div>
+                    <br>
+                    <br>
+                    <div class='domain'>
+
+                        <input type='text' name='username' id="email" placeholder='Username'> @gmail.com
+                    </div>
+                    <sub style="display: block;">You can use letters, numbers & periods</sub>
+                    <br>
+                    <a href='#' style="color: blue;">Use my current email address instead</a>
+                    <br>
+                    <br>
+                   
+                    <input type='password' name='password' placeholder='Password' id="pass">
+                    
+                   
+
+                    <input type='password' name='cpassword' placeholder='Confirm' id="myInput"> <sub
+                        style="display: inline-flex;color:red;" id="lowpass"></sub>
+                    <sub style="display: block;">Use 8 or more characters with a mix of letters, numbers & symbols</sub>
+                    <br>
+                    <br>
+                    <input type="checkbox" id="ch" name="ch" value="show" onclick="myFunction()"><label for='check'>Show
+                        Password</label>
+                    <br>
+                    <br>
+                    <a href='#' style="color: blue;">Sign in Instead</a>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+
+                    
+                    <button type="button"  value='Next' onclick="fun()"
+                        style="margin-left: 10%;border:none">
+                        
+                        <div class='btn'>
+                            Next
+                        </div>
+                        
+                        </button>
+
+
+                </div>
+            </div>
+        </div>
+        <script>
+
+            window.onload = function () {
+
+                /* event listener */
+                document.getElementsByName("password")[0].addEventListener('change', doThing);
+                document.getElementsByName("cpassword")[0].addEventListener('change', doThing);
+
+                /* function */
+                function doThing() {
+                    var email = document.getElementById("pass").value;
+                    email = String(email);
+                    // console.log("type = " + typeof (email) , "length = " + email.length);
+                    // console.log(email);
+
+                    if (email.length < 8) {
+                        console.log("inside if");
+                        document.getElementById("lowpass").innerHTML = "Use 8 or more characters with a mix of letters, numbers & symbols";
+                    } else {
+                        var confirm = document.getElementById("myInput").value;
+                        if (email == confirm) {
+                            document.getElementById("lowpass").innerHTML = "";
+                        } else {
+                            if (confirm == "") {
+
+                                document.getElementById("lowpass").innerHTML = "";
+                            }
+                            else {
+                                document.getElementById("lowpass").innerHTML = "Passwords don't match";
+                            }
+                        }
+
+                    }
+                }
+
+
+            }
+            function myFunction() {
+                var x = document.getElementById("myInput");
+                var y = document.getElementById("pass");
+                if (x.type === "password") {
+                    x.type = "text";
+                    y.type = "text";
+                } else {
+                    x.type = "password";
+                    y.type = "password";
+                }
+            }
+
+
+            function fun() {
+                var name = document.getElementById("name").value;
+                var last = document.getElementById("last").value;
+                var email = document.getElementById("email").value;
+                var pass = document.getElementById("pass").value;
+                var confirm = document.getElementById("myInput").value;
+
+                if (name == "" || last == "" || email == "" || pass == "" || confirm == "") {
+                    var a = prompt("Please fill all the fields a");
+                    var b = prompt("Please fill all the fields b");
+                    alert("you entered " + a);
+                    Notification.requestPermission();
+                    var notification = new Notification("Notification", {
+                        body: "you entered " + a
+                    });
+                    //alert("Please fill all the fields");
+                }
+                else {
+                    if (pass.length < 8) {
+
+                        var p = document.getElementById("lowpass");
+                        p.innerText = "password should be of length 8";
+
+                    }
+                    else {
+                        if (pass != confirm) {
+                            //document.getElementById("myInput").style.border = "2px solid red";
+                            var p = document.getElementById("lowpass");
+                            p.innerText = "password doesn't match";
+
+
+                        }
+                        else {
+                            alert("Successfully Registered");
+                        }
+
+                    }
+
+                }
+            }
+
+        </script>
+    </body>
+
+</html>

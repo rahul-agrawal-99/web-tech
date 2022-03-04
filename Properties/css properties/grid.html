@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Document</title>
+</head>
+<style>
+    #wrapper {
+        display: grid;                            /* 1 */
+        grid-template-columns: repeat(2, 50%);   /* 2 */
+        grid-auto-rows:100%;                     /* 3 */
+        grid-gap: 10px;                           /* 4 */
+        width: 100%;
+      }
+      
+      .tall {
+        grid-row: 1 / 3;                          /* 5 */
+        grid-column: 2 / 3;                       /* 5 */
+      }
+      
+      .wide {
+        grid-row: 2 / 4;                          /* 6 */
+        grid-column: 3 / 5;                       /* 6 */
+      }
+      
+      .block {
+        background-color: red;
+      }
+</style>
+<body>
+    <div id="wrapper">
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block tall"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block wide"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+      </div>
+</body>
+</html>
