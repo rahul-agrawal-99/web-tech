@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Ratio after N period Calculator</title>
+</head>
+<body>
+
+       <label for='first ratio'> Intial ratio</label>
+        <input type="number" name="num1" placeholder="First Number">
+        <input type="number" name="num2" placeholder="Second Number">
+        <br>
+        <br>
+        <br>
+       <label for='second ratio'> After N period Ratio </label>
+        <input type="number" name="num3" placeholder="First Number">
+        <input type="number" name="num4" placeholder="Second Number">
+        <br>
+        <br>
+        <label for='Gap betn ratio 1 and ratio 2'> N period</label>
+         <input type="number" name="num5" placeholder="Gap">
+        <br>
+        <br>
+        <br>
+      
+        <button>Submit</button>
+    <br>
+    <br>
+    <br>
+<h3></h3>
+<h2></h2>
+<p id="p1"></p>
+<p id="p2"></p>
+
+
+    <script>
+        const btn = document.querySelector('button');
+        btn.addEventListener('click', () => {
+            const num1 = document.querySelector('input[name="num1"]').value;
+            const num2 = document.querySelector('input[name="num2"]').value;
+            const num3 = document.querySelector('input[name="num3"]').value;
+            const num4 = document.querySelector('input[name="num4"]').value;
+            const gap = document.querySelector('input[name="num5"]').value;
+            
+            var a = num1 * num4;
+            var c = num2 * num3;
+            var g1 = gap * num4 ;
+            var g2 = gap * num3 ;
+            var content =  a + "x" + " + " + g1 + " = " + c + "x" + " + " + g2;
+            
+            const display = document.querySelector('h3');
+            display.textContent = content ;
+            const display2 = document.querySelector('h2');
+            const unit = (g2 - g1) / (a - c);
+            display2.textContent = "x = " + unit ;
+            const display3 = document.getElementById('p1');
+            display3.textContent = `first ratio  A is ${num1 * unit} and B is ${num2 * unit}` ;
+            const display4 = document.getElementById('p2');
+           
+            display4.textContent = `Second ratio  A after ${gap} years is ${num3 * unit} and B after ${gap} years is ${num4 * unit}` ;
+        });
+    </script>
+
+    
+</body>
+</html>
